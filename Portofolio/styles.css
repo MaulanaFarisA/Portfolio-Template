@@ -1,9 +1,9 @@
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #f9f9f9;
 }
 
 header.navbar-container {
@@ -17,16 +17,16 @@ header.navbar-container {
 }
 
 .nav-list ul {
-  list-style: none; 
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 24px; 
+  gap: 24px;
 }
 
 .nav-list a {
   text-decoration: none;
-  color: #333; 
+  color: #333;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -35,59 +35,63 @@ header.navbar-container {
   color: #ff6f00; 
 }
 
-.content{
+.content {
   margin-top: 110px;
   display: flex;
-  padding-left: 85px;
-  padding-right: 85px;
+  padding: 0 7%;
   justify-content: space-around;
   gap: 40px;
-
+  flex-wrap: wrap;
 }
+
 .description {
-  margin: 0;
-  padding: 0;
-  width: 650px;
-  align-self: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 650px;
   font-size: 16px;
-  flex: 0.9;
   text-align: justify;
   line-height: 1.5;
 }
-.description h1{
+
+.description h1 {
   font-weight: bold;
   font-size: 40px;
-  height: 52px;
-  margin: 0;
+  margin: 0 0 16px 0;
 }
-.myself img{
-  width: 350px; 
-  height: 350px;
-  object-fit: cover; 
-  border-radius: 50%; 
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.see-more{
+.myself {
+  flex: 0 0 350px;
   display: flex;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   justify-content: center;
   align-items: center;
+}
+.myself img {
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+  object-fit: cover; 
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.see-more {
+  display: block;
   width: 240px;
   height: 40px;
-  background-color: palevioletred;
-  font-weight: bolder;
   margin-top: 24px;
+  font-weight: bold;
+  background-color: palevioletred;
+  color: #fff;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  color:azure;
+  transition: 0.3s;
 }
+
 .see-more:hover {
-  background-color: #ff6600;  
-  transform: translateY(-4px); 
+  background-color: #ff6600;
   color: #000;
 }
+
 @media (max-width: 1024px) {
   .content {
     padding-left: 40px;
@@ -98,11 +102,13 @@ header.navbar-container {
   .description {
     width: 100%;
     font-size: 15px;
+    order: -2;
   }
 
   .myself img {
     width: 280px;
     height: 280px;
+    order: -3;
   }
 }
 
@@ -121,7 +127,7 @@ header.navbar-container {
   .description {
     width: 100%;
     font-size: 14px;
-    order: 2;
+    order: -5;
   }
 
   .description h1 {
@@ -133,7 +139,7 @@ header.navbar-container {
     width: 220px;
     height: 220px;
     margin-top: 20px;
-    order: -1;
+    order: -99;
   }
 
   .see-more {
@@ -154,42 +160,36 @@ header.navbar-container {
 
 #Projects {
   margin-top: 180px;
-  padding-left: 7%;
-  padding-right: 7%;
+  padding: 0 7%;
   box-sizing: border-box;
 }
-#Projects h1{
+
+#Projects h1 {
   font-weight: bold;
   font-size: 40px;
-  height: 52px;
-  margin: 0;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
 }
-#Projects h2{
-  margin: 0;
-}
-
 .project-card {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
   padding: 16px;
+  margin-bottom: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 30px;
   background: #fff;
   box-sizing: border-box;
+}
+.project-card h2 {
+  margin: 0 0 16px 0;
 }
 
 .project-desc {
   display: flex;
-  flex-direction: row;         /* desktop → teks kiri, foto kanan */
-  justify-content: space-between;
+  flex-direction: row;
   gap: 30px;
   width: 100%;
-  height: 300px;               /* tinggi fix untuk card */
+  height: 300px;
 }
 
 .project-desc p{
@@ -202,25 +202,31 @@ header.navbar-container {
 }
 
 .project-photo {
-  flex: 1;                     /* ambil space sama dengan teks */
+  flex: 1;
   display: flex;
 }
 
 .project-photo img {
-  width: 100%;                 /* penuh div */
-  height: 100%;                /* penuh div */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  object-fit: cover;           /* jaga proporsi, nggak gepeng */
 }
 .project-text {
   flex: 1;
   display: flex;
-  flex-direction: column; /* teks dan button jadi vertikal */
-  justify-content: space-between; /* button turun ke bawah */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-text p {
+  margin: 0;
+  font-size: 18px;
+  text-align: justify;
+  flex: 1;
 }
 
 .Detail {
-  align-self: flex-start; /* button nempel kiri */
   padding: 8px 16px;
   background: coral;
   border: none;
@@ -228,36 +234,77 @@ header.navbar-container {
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
+  align-self: flex-start;
 }
 
 .Detail:hover {
-  background: darkorange;
+  background: rgb(112, 75, 7);
 }
+
+
 @media (max-width: 992px) {
-  .project-desc {
-    flex-direction: column; /* teks di atas, foto di bawah */
+  .content {
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+
+  .description {
+    order: -5;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .myself {
+    order: -99;
+
+    /* margin-bottom: 20px; */
+  }
+
+  .see-more {
+    margin: 24px auto 0 auto;
+  }
+
+  .project-desc {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .project-photo {
+    width: 100%;
+    height: 200px;
   }
 
   .project-photo img {
     width: 100%;
-    max-width: 500px;
+    height: 100%;
   }
 }
 
 /* HP */
 @media (max-width: 576px) {
-  #Projects h1 {
-    font-size: 28px;
+  .description h1 {
+    font-size: 24px;
   }
 
-  .project-desc p {
+  .project-text p {
     font-size: 16px;
   }
 
   .Detail {
-    padding: 6px 12px;
     font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .myself img {
+    width: 220px;
+    height: 220 px;
+  }
+
+  #Projects h1 {
+    font-size: 28px;
   }
 }
 
